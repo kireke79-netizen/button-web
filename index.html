@@ -8,29 +8,27 @@
     <style>
         body { margin: 0; font-family: 'Noto Sans KR', sans-serif; line-height: 1.6; color: #111; word-break: keep-all; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        
         header { height: 80px; display: flex; align-items: center; border-bottom: 1px solid #f0f0f0; position: sticky; top: 0; background: #fff; z-index: 100; }
         .logo { font-size: 28px; font-weight: 900; letter-spacing: 2px; }
-
-        .hero { padding: 120px 0; background: #fff; text-align: left; }
+        .hero { padding: 100px 0; background: #fff; text-align: left; }
         .hero h1 { font-size: 4rem; line-height: 1.1; margin: 0; font-weight: 900; }
         .hero p { font-size: 1.4rem; color: #555; margin: 30px 0; }
         .accent { color: #eb2f06; }
-
-        .services { padding: 100px 0; background: #fafafa; }
+        .services { padding: 80px 0; background: #fafafa; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 50px; }
-        .card { background: #fff; padding: 50px 30px; border-radius: 2px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .card h3 { font-size: 1.6rem; margin-top: 0; border-left: 4px solid #000; padding-left: 15px; }
-
+        .card { background: #fff; padding: 40px 30px; border-radius: 2px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .contact { padding: 100px 0; background: #111; color: #fff; }
-        .contact h2 { font-size: 2.5rem; margin-bottom: 50px; }
-        .info { font-size: 1.2rem; color: #aaa; }
-        .info strong { color: #fff; display: inline-block; width: 100px; }
-        .contact-link { color: #fff; text-decoration: none; border-bottom: 1px solid #fff; padding-bottom: 2px; }
-        .contact-link:hover { color: #eb2f06; border-color: #eb2f06; }
+        .contact h2 { font-size: 2.5rem; margin-bottom: 30px; }
+        
+        /* 문의 양식 스타일 */
+        .contact-form { background: #222; padding: 40px; border-radius: 5px; margin-top: 40px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: #ccc; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #444; background: #333; color: #fff; border-radius: 4px; box-sizing: border-box; }
+        .submit-btn { background: #eb2f06; color: #fff; border: none; padding: 15px 30px; font-size: 1rem; font-weight: 700; cursor: pointer; border-radius: 4px; transition: 0.3s; }
+        .submit-btn:hover { background: #ff4d26; }
         
         footer { padding: 50px 0; text-align: center; color: #999; font-size: 0.9rem; }
-        
         @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } }
     </style>
 </head>
@@ -39,7 +37,6 @@
 <header>
     <div class="container" style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
         <div class="logo">BUTTON</div>
-        <a href="mailto:hj.yang@the-button.co.kr" class="contact-link" style="color: #000; border-color: #000; font-weight: 700;">Inquiry</a>
     </div>
 </header>
 
@@ -53,37 +50,45 @@
 <section class="services">
     <div class="container">
         <div class="grid">
-            <div class="card">
-                <h3>Branding</h3>
-                <p>단순한 홍보를 넘어 제품과 작품의 본질적인 매력을 발굴하고 시장을 압도하는 브랜딩 전략을 수립합니다.</p>
-            </div>
-            <div class="card">
-                <h3>Artist Marketing</h3>
-                <p>연예인 개별 브랜딩을 통해 아티스트의 영향력을 극대화하고 타겟화된 마케팅 솔루션을 제공합니다.</p>
-            </div>
-            <div class="card">
-                <h3>Global PR</h3>
-                <p>온/오프라인 채널을 통합하여 대중의 시선을 사로잡는 강력한 퍼포먼스를 보여줍니다.</p>
-            </div>
+            <div class="card"><h3>Branding</h3><p>제품과 작품의 본질적인 매력을 발굴하고 독보적인 브랜딩 전략을 수립합니다.</p></div>
+            <div class="card"><h3>Artist Marketing</h3><p>연예인 개별 브랜딩을 통해 아티스트의 영향력을 극대화합니다.</p></div>
+            <div class="card"><h3>Global PR</h3><p>온/오프라인 통합 채널을 통해 대중의 시선을 사로잡는 퍼포먼스를 보여줍니다.</p></div>
         </div>
     </div>
 </section>
 
 <section id="contact" class="contact">
     <div class="container">
-        <h2>Let's Talk.</h2>
-        <div class="info">
-            <p><strong>주소</strong> 서울시 강남구 도산대로 54-4 4층</p>
-            <p><strong>문의</strong> <a href="mailto:hj.yang@the-button.co.kr" class="contact-link">hj.yang@the-button.co.kr</a></p>
+        <h2>Work with Us</h2>
+        <p style="color: #aaa;">협업 문의를 남겨주시면 담당자가 확인 후 연락드리겠습니다.</p>
+        
+        <div class="contact-form">
+            <form action="https://formspree.io/f/hj.yang@the-button.co.kr" method="POST">
+                <div class="form-group">
+                    <label>성함 / 업체명</label>
+                    <input type="text" name="name" required placeholder="예: 홍길동 / 버튼">
+                </div>
+                <div class="form-group">
+                    <label>회신받을 이메일</label>
+                    <input type="email" name="_replyto" required placeholder="example@email.com">
+                </div>
+                <div class="form-group">
+                    <label>문의 내용</label>
+                    <textarea name="message" rows="5" required placeholder="문의하실 내용을 입력해 주세요."></textarea>
+                </div>
+                <input type="hidden" name="_subject" value="[BUTTON 홈페이지] 새로운 문의가 접수되었습니다.">
+                <button type="submit" class="submit-btn">문의 보내기</button>
+            </form>
+        </div>
+        
+        <div style="margin-top: 40px; border-top: 1px solid #333; padding-top: 40px;">
+            <p style="color: #aaa;"><strong>주소:</strong> 서울시 강남구 도산대로 54-4 4층</p>
+            <p style="color: #aaa;"><strong>직통 이메일:</strong> hj.yang@the-button.co.kr</p>
         </div>
     </div>
 </section>
 
-<footer>
-    <div class="container">
-        &copy; 2026 BUTTON. ALL RIGHTS RESERVED.
-    </div>
-</footer>
+<footer><div class="container">&copy; 2026 BUTTON. ALL RIGHTS RESERVED.</div></footer>
 
 </body>
 </html>
